@@ -2,7 +2,7 @@ const Arrow = require("./arrow");
 const ModelPair = require("../model_pair");
 /**
  * 反向直插盒 100030
- * @zhangbobo
+ * @xunlu
  */
 module.exports = class ReversePluginBox extends ModelPair {
   /**
