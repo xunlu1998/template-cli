@@ -94,7 +94,7 @@ class Creator {
       {
         type: "input",
         name: "KSLid",
-        message: "How many of the IIL with L?",
+        message: "你需要输入长度制作尺寸IIL的系数",
         validate: function(value) {
           var valid = !isNaN(parseFloat(value));
           return valid || "Please enter a number";
@@ -104,7 +104,7 @@ class Creator {
       {
         type: "input",
         name: "KSWid",
-        message: "How many of the IIL with W?",
+        message: "你需要输入宽度制作尺寸IIL的系数",
         validate: function(value) {
           var valid = !isNaN(parseFloat(value));
           return valid || "Please enter a number";
@@ -114,7 +114,17 @@ class Creator {
       {
         type: "input",
         name: "KSHid",
-        message: "How many of the IIL with D?",
+        message: "你需要输入高度制作尺寸IIL的系数",
+        validate: function(value) {
+          var valid = !isNaN(parseFloat(value));
+          return valid || "Please enter a number";
+        },
+        filter: Number
+      },
+      {
+        type: "input",
+        name: "KSHd",
+        message: "你需要输入高度制作尺寸CCAL的系数",
         validate: function(value) {
           var valid = !isNaN(parseFloat(value));
           return valid || "Please enter a number";
@@ -124,7 +134,7 @@ class Creator {
       {
         type: "input",
         name: "KSHof",
-        message: "How many of the OF with D?",
+        message: "你需要输入高度制作尺寸of的系数",
         validate: function(value) {
           var valid = !isNaN(parseFloat(value));
           return valid || "Please enter a number";
@@ -135,7 +145,7 @@ class Creator {
       {
         type: "input",
         name: "OSLd",
-        message: "How many of the CCAL with LW?",
+        message: "你需要输入长度外尺寸CCAL的系数",
         validate: function(value) {
           var valid = !isNaN(parseFloat(value));
           return valid || "Please enter a number";
@@ -145,7 +155,7 @@ class Creator {
       {
         type: "input",
         name: "OSWd",
-        message: "How many of the CCAL with WW?",
+        message: "你需要输入宽度外尺寸CCAL的系数",
         validate: function(value) {
           var valid = !isNaN(parseFloat(value));
           return valid || "Please enter a number";
@@ -155,7 +165,7 @@ class Creator {
       {
         type: "input",
         name: "OSHd",
-        message: "How many of the CCAL with DW?",
+        message: "你需要输入高度外尺寸CCAL的系数",
         validate: function(value) {
           var valid = !isNaN(parseFloat(value));
           return valid || "Please enter a number";
