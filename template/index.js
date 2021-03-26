@@ -1,26 +1,30 @@
 const path = require("path");
 const fs = require("fs-extra");
+const chalk = require("chalk");
 
-module.exports = function (creator, options, callback) {
-  const { id, description, author, name } = options;
+module.exports = function(creator, options, callback) {
+  const { type, id, description, author, name } = options;
 
-  // 获取当前命令的执行目录，注意和项目目录区分
+  // 获取当前命令的执行目录
   const cwd = process.cwd();
 
-  const projectPath = path.join(cwd, name);
-  const buildPath = path.join(projectPath, "build");
-  const pagePath = path.join(projectPath, "page");
-  const srcPath = path.join(projectPath, "src");
+  const projectPath = path.join(cwd, "knifes"); // bxh-knife-master/knifes
+  const libPath = path.join(projectPath, "lib");
 
-  // 新建项目目录
-  // 同步创建目录，以免文件目录不对齐
-  fs.mkdirSync(projectPath);
-  fs.mkdirSync(buildPath);
-  fs.mkdirSync(pagePath);
-  fs.mkdirSync(srcPath);
+  // fs.mkdirSync(projectPath);
 
-  callback();
+  creator.copyTpl("pair/x4y4.js", path.join(libPath, "pair_copy.js"), {
+    name,
+    description,
+    author,
+    id,
+    type
+  });
 
-  //   todo
-  // https://juejin.cn/post/6844903802001162248
+  creator.fs.commit(() => {
+    console.log();
+    console.log(`${chalk.grey(`创建文件: ${libPath}/copy.js`)} ${chalk.green("✔ ")}`);
+
+    callback();
+  });
 };
