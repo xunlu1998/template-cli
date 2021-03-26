@@ -3,7 +3,20 @@ const fs = require("fs-extra");
 const chalk = require("chalk");
 
 module.exports = function(creator, options, callback) {
-  const { type, id, description, author, name } = options;
+  const {
+    type,
+    id,
+    description,
+    author,
+    name,
+    KSLid,
+    KSWid,
+    KSHid,
+    KSHof,
+    OSLd,
+    OSWd,
+    OSHd
+  } = options;
 
   // 获取当前命令的执行目录
   const cwd = process.cwd();
@@ -18,12 +31,19 @@ module.exports = function(creator, options, callback) {
     description,
     author,
     id,
-    type
+    type,
+    KSLid,
+    KSWid,
+    KSHid,
+    KSHof,
+    OSLd,
+    OSWd,
+    OSHd
   });
 
   creator.fs.commit(() => {
     console.log();
-    console.log(`${chalk.grey(`创建文件: ${libPath}/copy.js`)} ${chalk.green("✔ ")}`);
+    console.log(`${chalk.grey(`创建文件: ${libPath}/pair_copy.js`)} ${chalk.green("✔ ")}`);
 
     callback();
   });
